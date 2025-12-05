@@ -1,6 +1,11 @@
 fn find_divisors(int_len: usize) -> Vec<usize> {
     let mut vec = Vec::new();
 
+    if int_len == 1 {
+        vec.push(1);
+        return vec;
+    }
+
     for div in 2..=int_len {
         if !int_len.is_multiple_of(div) {
             continue;
@@ -75,6 +80,10 @@ pub fn unroll_ranges(ranges: Vec<(String, String)>) -> Vec<String> {
 pub fn is_complex_pattern(str: &str) -> bool {
     let mut is_true = false;
     let len = str.len();
+
+    if len == 1 {
+        return false;
+    }
 
     'a: for p_len in find_divisors(len) {
         let pattern = &str[..p_len];
