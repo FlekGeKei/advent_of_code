@@ -27,7 +27,7 @@ pub fn parse_line(input: &str, quota: usize) -> usize {
     while cost != 0 {
         for (i, c) in input[b_index..len - cost + 1].chars().enumerate() {
             if c <= biggest {
-                if i >= len - cost {
+                if i >= len - b_index - cost {
                     break;
                 }
                 continue;
