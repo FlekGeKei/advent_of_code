@@ -25,11 +25,8 @@ pub fn parse_line(input: &str, quota: usize) -> usize {
     let mut vec = Vec::<char>::new();
 
     while cost != 0 {
-        for (i, c) in input[b_index..len - cost + 1].chars().enumerate() {
+        for (i, c) in input[b_index..=len - cost].chars().enumerate() {
             if c <= biggest {
-                if i >= len - b_index - cost {
-                    break;
-                }
                 continue;
             }
             biggest = c;
